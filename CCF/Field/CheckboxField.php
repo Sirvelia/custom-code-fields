@@ -35,6 +35,7 @@ class CheckboxField extends Field
 
 		switch ($context) {
             case 'post':
+			case 'product':
 				update_post_meta($object_id, $key, isset($_POST[$key]) ? '1' : '0');
                 break;
             case 'user':

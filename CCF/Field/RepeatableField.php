@@ -68,10 +68,9 @@ class RepeatableField
             $num_entries = intval($_POST[$key]);
             $num_entries_old = (int) get_post_meta($object_id, $key, true);
 
-            update_post_meta($object_id, $key, $num_entries);
-
             switch ($context) {
                 case 'post':
+                case 'product':
                     update_post_meta($object_id, $key, $num_entries);
                     break;
                 case 'user':

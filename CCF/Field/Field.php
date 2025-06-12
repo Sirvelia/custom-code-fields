@@ -34,11 +34,9 @@ class Field
         $key = $parent . '_' . $this->slug;
         $value = isset($_POST[$key]) ? sanitize_text_field($_POST[$key]) : $this->default_value;
 
-        error_log('SAVE');
-        error_log("$context: $object_id - $value");
-
         switch ($context) {
             case 'post':
+            case 'product':
                 update_post_meta($object_id, $key, $value);
                 break;
             case 'user':
@@ -59,6 +57,7 @@ class Field
 
         switch ($context) {
             case 'post':
+            case 'product':
                 delete_post_meta($object_id, $key);
                 break;
             case 'user':
@@ -79,6 +78,7 @@ class Field
 
         switch ($context) {
             case 'post':
+            case 'product':
                 return get_post_meta($object_id, $key, true);
             case 'user':
                 return get_user_meta($object_id, $key, true);

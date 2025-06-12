@@ -67,6 +67,7 @@ class MultiSelectField extends Field
 
 		switch ($context) {
             case 'post':
+            case 'product':
 				update_post_meta($object_id, $key, $value);
                 break;
             case 'user':

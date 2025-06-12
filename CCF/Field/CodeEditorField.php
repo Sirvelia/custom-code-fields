@@ -97,10 +97,9 @@ class CodeEditorField extends Field
         $key = $parent . '_' . $this->slug;
         $value = isset($_POST[$key]) ? wp_kses_post($_POST[$key]) : '';
 
-        error_log('SAVE:' . $key . ' ' . $value . ' ' . $context . ' ' . $object_id);
-
         switch ($context) {
             case 'post':
+            case 'product':
                 update_post_meta($object_id, $key, $value);
                 break;
             case 'user':
