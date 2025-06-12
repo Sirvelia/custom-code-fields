@@ -28,8 +28,8 @@ class ProductSection extends Section
 			global $typenow;
 
 			if ($typenow === 'product' && ($hook === 'post-new.php' || $hook === 'post.php')) {
-				wp_enqueue_style('custom-code-fields/app.css', plugin_dir_url(__DIR__) . 'dist/app.css', false, __NAMESPACE__ . '\VERSION');
-				wp_enqueue_script('custom-code-fields/app.js', plugin_dir_url(__DIR__) . 'dist/app.js', [], __NAMESPACE__ . '\VERSION', true);
+				wp_enqueue_style('custom-code-fields/app.css', plugin_dir_url(__DIR__) . '../dist/app.css', false, __NAMESPACE__ . '\VERSION');
+				wp_enqueue_script('custom-code-fields/app.js', plugin_dir_url(__DIR__) . '../dist/app.js', [], __NAMESPACE__ . '\VERSION', true);
 				wp_localize_script('custom-code-fields/app.js', 'CCF_PARAMS', array(
 					'ajaxurl'   => admin_url('admin-ajax.php'),
 					'api_url'   => get_rest_url(null, 'custom-code-fields/v1'),
