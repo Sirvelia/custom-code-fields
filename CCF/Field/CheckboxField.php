@@ -14,8 +14,8 @@ class CheckboxField extends Field
 	{
 		ob_start(); ?>
 		<p x-data="{ 
-                field_name: field_name + '_<?= $this->slug ?>', 
-                field_value: section_fields[field_name] !== undefined ? section_fields[field_name] : <?= $this->default_value === '1' ? 'true' : 'false' ?>
+                field_name: field_name + '_<?= $this->slug ?>',
+                default_value: '<?= $this->default_value ?>'
             }"
 			class="form-field _<?= $this->type ?>_field">
 			<label :for="field_name"><?= $this->name ?></label>
@@ -24,7 +24,7 @@ class CheckboxField extends Field
 				class="checkbox"
 				:name="field_name"
 				:id="field_name"
-				x-model="field_value">
+				:checked="(section_fields[field_name] !== undefined) ? section_fields[field_name] == '1' : default_value == '1'">
 		</p>
 <?php echo ob_get_clean();
 	}
